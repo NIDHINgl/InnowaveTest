@@ -6,6 +6,7 @@ import {useNavigation,useRoute} from '@react-navigation/native';
 import {SwipeListView, SwipeRow} from 'react-native-swipe-list-view';
 import Actions from '../store/actions'
 import {useDispatch,useSelector} from 'react-redux';
+import DeleteIcon from '../assets/delete.svg';
 
 const DealsItem = ({item,index}) => {
   
@@ -54,7 +55,8 @@ const DealsItem = ({item,index}) => {
             setSwiped(false);
             dispatch(Actions.deleteDevices(index))
           }}>
-          <Image style={{width:30,height:30}} source={require('../assets/delete.png')} />
+            <DeleteIcon />
+          {/* <Image style={{width:30,height:30}} source={require('../assets/delete.png')} /> */}
         </TouchableOpacity>
       </View>
     <View>
