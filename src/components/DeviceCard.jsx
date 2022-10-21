@@ -4,11 +4,15 @@ import styles from './Styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {SwipeListView, SwipeRow} from 'react-native-swipe-list-view';
+import Actions from '../store/actions'
+import {useDispatch} from 'react-redux';
 
 const DealsItem = ({item,index}) => {
   
   const navigation = useNavigation();
   const [didSwipe, setSwiped] = React.useState();
+  const dispatch = useDispatch();
+
 
   
 
@@ -18,7 +22,7 @@ const DealsItem = ({item,index}) => {
       leftOpenValue={0}
       rightOpenValue={-92}
       style={styles.container}
-      onRowPress={()=>navigation.navigate('Details')}
+      onRowPress={()=>navigation.navigate('Details',{index:index})}
       onSwipeValueChange={(...params) => {
         if (params[0].value < -0.4) {
           setSwiped(true);
@@ -30,12 +34,23 @@ const DealsItem = ({item,index}) => {
         <TouchableOpacity
           onPress={() => {
             setSwiped(false);
+            navigation.navigate('DeviceInput',{
+              device:{
+                model:item?.model,
+                os:item?.os,
+                owner:item?.owner,
+                description:item?.description,
+                image:item?.image
+              },
+              index:index
+            })
           }}>
           <Image style={{width:30,height:30}} source={require('../assets/edit.png')} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             setSwiped(false);
+            dispatch(Actions.deleteDevices(index))
           }}>
           <Image style={{width:30,height:30}} source={require('../assets/delete.png')} />
         </TouchableOpacity>
@@ -45,7 +60,7 @@ const DealsItem = ({item,index}) => {
       <View style={styles.dealsItem}>
         <View style={styles.imageWrapper}>
         
-          <Image style={styles.image} source={{uri: 'https://i.gadgets360cdn.com/products/large/moto-g52-db-709x800-1649827920.jpg'}} />
+          <Image style={styles.image} source={{uri: item?.image}} />
         </View>
         <View style={styles.rowStretched}>
           <View style={{flexDirection:'row'}}>

@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useCallback} from 'react';
 import { View, Text,TouchableOpacity,SafeAreaView,TextInput } from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useNavigation,useRoute} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import Actions from '../store/actions'
 
 import styles from './Styles';
@@ -13,6 +13,8 @@ export default function DeviceInput() {
   const dispatch = useDispatch();
 
 
+
+
   const [values,setValues] = useState<any>({
     model:'',
     os:'',
@@ -21,9 +23,21 @@ export default function DeviceInput() {
     image:''
   });
 
-  // useEffect(()=>{
-  //   setValues(route?.params?.device)
-  // },[navigation,route])
+  useEffect(()=>{
+    console.log('route?.params?.devicessdevice',typeof route?.params?.index)
+    if(route?.params?.device){
+      setValues(route?.params?.device)
+    }
+  },[navigation,route])
+
+  const submitDetails = useCallback(()=>{
+    if(route?.params?.device){
+      console.log('valuesvalues',values)
+      dispatch(Actions.editDevices(route?.params?.index,values))
+    }else{
+      dispatch(Actions.addDevices(values))
+    }
+  },[values,route])
 
   return (
     <SafeAreaView>
@@ -101,7 +115,7 @@ export default function DeviceInput() {
               onChangeText={value => setValues({...values,image:value})}
             />
           </View>
-          <TouchableOpacity style={styles.login} onPress={() =>{dispatch(Actions.addDevices(values));navigation.goBack()}}>
+          <TouchableOpacity style={styles.login} onPress={() =>{submitDetails();navigation.goBack()}}>
             <Text
               style={styles.loginText}
              >

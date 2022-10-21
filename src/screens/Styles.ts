@@ -77,6 +77,9 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     justifyContent:'center'
   },
+  seperator:{
+    height:10
+  },
 })
 
 export default styles;

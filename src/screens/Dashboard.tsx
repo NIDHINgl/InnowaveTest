@@ -19,6 +19,7 @@ console.log('devicesdevices',devices)
           renderItem={({item, index}) => (
             <DealsItem item={item} index={index} />
           )}
+          ItemSeparatorComponent={()=><View style={styles.seperator} />}
           // ListEmptyComponent={() =>}
         />
       

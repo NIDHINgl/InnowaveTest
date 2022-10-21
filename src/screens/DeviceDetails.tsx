@@ -10,16 +10,17 @@ import {
 import styles from '../components/Styles';
 import TitleHeader from '../components/TitleHeader';
 import QRCode from 'react-native-qrcode-svg';
+import {useSelector} from 'react-redux';
+import {useNavigation,useRoute} from '@react-navigation/native';
 
-import {connect, useDispatch} from 'react-redux';
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 const DealDetails = () => {
-  const [liked, setLiked] = useState();
-  const [dealDetails, setDealDetails] = useState();
+  const route = useRoute<any>();
 
-  const dispatch = useDispatch();
+  const device = useSelector((state:any) => state.devices)[route?.params?.index]||[];
+
 
   const dashCount = Math.ceil(
     (SCREEN_WIDTH - 96 / 12),
@@ -32,8 +33,8 @@ const DealDetails = () => {
         <View style={styles.tearContainer}>
           <ImageBackground
             style={styles.dealContent}
-            source={{uri: 'https://i.gadgets360cdn.com/products/large/moto-g52-db-709x800-1649827920.jpg'}}>
-            <View style={styles.rowStretched}>
+            source={{uri: device?.image}}>
+            {/* <View style={styles.rowStretched}>
               
               <View
                 style={styles.tag}>
@@ -41,7 +42,7 @@ const DealDetails = () => {
                   android
                 </Text>
               </View>
-            </View>
+            </View> */}
             <View style={styles.detailsRow}>
               
               <View style={styles.shareButtons}>
@@ -63,23 +64,23 @@ const DealDetails = () => {
           <View style={styles.edgeRemoveTopLeft} />
           <View style={styles.edgeRemoveTopRight} />
           <Text numberOfLines={2} style={styles.ticketTitle}>
-            dssdfsdf
+          {device?.model}
           </Text>
 
           <View style={styles.textWrap}>
             <Text numberOfLines={6} style={styles.descriptionTitle}>
               Description:{' '}
               <Text style={styles.ticketDesc}>
-               sdfhsdfjhsdjkfhjkdshfjksdhf
+              {device?.description}
               </Text>
 
             </Text>
             <TouchableOpacity >
             <Text numberOfLines={2} style={styles.descriptionTitle}>
-              Location:{' '}
+              Owner:{' '}
               
-                <Text style={styles.link}>
-                  sdfdsfsdf
+                <Text  numberOfLines={2} style={styles.ticketDesc}>
+                {device?.owner}
 
                 </Text>
               
@@ -98,7 +99,7 @@ const DealDetails = () => {
 
           <View style={{width:'100%',alignItems:'center'}}>
           <QRCode
-        value="mobile"
+        value={device?.model}
         color={'black'}
         backgroundColor={'white'}
         size={100}
@@ -111,15 +112,9 @@ const DealDetails = () => {
           </View>
 
           <Text numberOfLines={1} style={styles.descriptionTitle}>
-            Quantity:{' '}
+            OS:{' '}
             <Text numberOfLines={2} style={styles.ticketDesc}>
-              sdfsdfsdaf
-            </Text>
-          </Text>
-          <Text numberOfLines={6} style={styles.descriptionTitle}>
-            Terms & Conditions:{' '}
-            <Text style={styles.ticketDesc}>
-              sfdsdafasdf
+            {device?.os}
             </Text>
           </Text>
 

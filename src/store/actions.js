@@ -2,7 +2,7 @@ export const ModuleEvents = {
     GET_DEVICES: 'GET_DEVICES',
     CHANGE_PREVIEW: 'CHANGE_PREVIEW',
     ADD_DEVICE: 'ADD_DEVICE',
-    REPLACE_DEVICE: 'REPLACE_DEVICE',
+    EDIT_DEVICE: 'EDIT_DEVICE',
     DELETE_DEVICE: 'DELETE_DEVICE',
 
 
@@ -21,8 +21,8 @@ export const ModuleEvents = {
         type: ModuleEvents.ADD_DEVICE,
         device,
       }),
-    replaceDevices: (id,device) => ({
-    type: ModuleEvents.REPLACE_DEVICE,
+    editDevices: (id,device) => ({
+    type: ModuleEvents.EDIT_DEVICE,
     id,
     device
     }),

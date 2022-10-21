@@ -73,7 +73,7 @@ export default function RootNavigator() {
               name="DeviceInput"
               component={DeviceInput}
               options={(props:any) => ({
-                headerShown: false,
+                headerShown: true,
                 ...screenOptions,
                 ...props,
               })}
