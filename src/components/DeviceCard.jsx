@@ -5,7 +5,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import {SwipeListView, SwipeRow} from 'react-native-swipe-list-view';
 
-const DealsItem = () => {
+const DealsItem = ({item,index}) => {
   
   const navigation = useNavigation();
   const [didSwipe, setSwiped] = React.useState();
@@ -52,7 +52,7 @@ const DealsItem = () => {
             <Text numberOfLines={1} style={styles.discount}>
             Model :{' '}
             </Text><Text numberOfLines={1} style={styles.discount}>
-            aaaa
+            {item?.model}
             </Text>
           </View>
 
@@ -60,7 +60,7 @@ const DealsItem = () => {
           <Text numberOfLines={1} style={styles.discount}>
            Os :{' '}
           </Text><Text numberOfLines={1} style={styles.discount}>
-           aaaa
+           {item?.os}
           </Text>
           </View>
 
@@ -68,7 +68,7 @@ const DealsItem = () => {
           <Text numberOfLines={1} style={styles.discount}>
            Owner :{' '}
           </Text><Text numberOfLines={1} style={styles.discount}>
-           aaaa
+           {item?.owner}
           </Text>
           </View>
 
@@ -76,7 +76,7 @@ const DealsItem = () => {
           <Text numberOfLines={1} style={styles.discount}>
            Details :{' '}
           </Text><Text numberOfLines={1} style={styles.discount}>
-           aaaa
+           {item?.description}
           </Text>
           </View>
           

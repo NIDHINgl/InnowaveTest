@@ -1,33 +1,33 @@
 export const ModuleEvents = {
-    GET_IMAGES: 'GET_IMAGES',
+    GET_DEVICES: 'GET_DEVICES',
     CHANGE_PREVIEW: 'CHANGE_PREVIEW',
-    ADD_IMAGE: 'ADD_IMAGE',
-    REPLACE_IMAGE: 'REPLACE_IMAGE',
-    DELETE_IMAGE: 'DELETE_IMAGE',
+    ADD_DEVICE: 'ADD_DEVICE',
+    REPLACE_DEVICE: 'REPLACE_DEVICE',
+    DELETE_DEVICE: 'DELETE_DEVICE',
 
 
    
   };
   const Actions = {
-    getImages: images => ({
-      type: ModuleEvents.GET_IMAGES,
-      images,
+    getDevices: devices => ({
+      type: ModuleEvents.GET_DEVICES,
+      devices,
     }),
     changePreview: id => ({
       type: ModuleEvents.CHANGE_PREVIEW,
       id,
     }),
-    addImage: image => ({
-        type: ModuleEvents.ADD_IMAGE,
-        image,
+    addDevices: device => ({
+        type: ModuleEvents.ADD_DEVICE,
+        device,
       }),
-    replaceImage: (id,image) => ({
-    type: ModuleEvents.REPLACE_IMAGE,
+    replaceDevices: (id,device) => ({
+    type: ModuleEvents.REPLACE_DEVICE,
     id,
-    image
+    device
     }),
-    deleteImage: id => ({
-        type: ModuleEvents.DELETE_IMAGE,
+    deleteDevices: id => ({
+        type: ModuleEvents.DELETE_DEVICE,
         id,
       }),
     

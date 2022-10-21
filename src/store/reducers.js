@@ -2,57 +2,53 @@ import {ModuleEvents} from "./actions";
   
   const initialState = {
     preview: null,
-    images: []
+    devices: []
         };
   
   export default function (state = initialState, action) {
     const { type, payload } = action;
   
     switch (type) {
-      case ModuleEvents.GET_IMAGES:
+      case ModuleEvents.GET_DEVICES:
   
         return {
           ...state,
-          images:action.images
+          devices:action.devices
         };
     case ModuleEvents.CHANGE_PREVIEW:
 
         return {
             ...state,
-            preview:state.images?.[action.id]
+            preview:state.devices?.[action.id]
         };
-    case ModuleEvents.ADD_IMAGE:
-        let prev = state.preview
-        if(state.images?.length <1){
-            prev = action.image
-        }
-        return {
-            ...state,images:[...state.images,action.image],preview:prev};
-    case ModuleEvents.REPLACE_IMAGE:
+    case ModuleEvents.ADD_DEVICE:
+       console.log('action.device',action.device)
+        return {...state,devices:[...state.devices,action.device]};
+    case ModuleEvents.REPLACE_DEVICE:
         let re_prev = state.preview
-        if(state.images?.length == 1){
-            prev = action.image
+        if(state.devices?.length == 1){
+            prev = action.device
         }
-        let id = state.images.findIndex(
+        let id = state.devices.findIndex(
             (item,index) => index === action.id,
           );
-          state.images[id] = action?.image;
+          state.devices[id] = action?.device;
         return {
-            ...state,images:[...state.images],preview:prev};
+            ...state,devices:[...state.devices],preview:prev};
     
-    case ModuleEvents.DELETE_IMAGE:
+    case ModuleEvents.DELETE_DEVICE:
        let newPrev = null;
-        const newList = state?.images?.filter(
+        const newList = state?.devices?.filter(
             (item,index) => index != action.id,
           );
-          if(state.images?.[action.id+1]){
-            newPrev = state.images?.[action.id+1]
-          }else if(state.images?.[action.id-1]){
-            newPrev = state.images?.[action.id-1]
+          if(state.devices?.[action.id+1]){
+            newPrev = state.devices?.[action.id+1]
+          }else if(state.devices?.[action.id-1]){
+            newPrev = state.devices?.[action.id-1]
           }
 
         return {
-            ...state,images:newList,preview:newPrev
+            ...state,devices:newList,preview:newPrev
         };
   
       default:
