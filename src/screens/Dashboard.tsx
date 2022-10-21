@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 export default function Dashboard() {
   const navigation = useNavigation<any>();
   const devices = useSelector((state:any) => state.devices);
-console.log('devicesdevices',devices)
+
 
   return (
     <View style={styles.container}>

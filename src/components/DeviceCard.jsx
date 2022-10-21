@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {Image, View, Platform,Text} from 'react-native';
 import styles from './Styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation,useRoute} from '@react-navigation/native';
 import {SwipeListView, SwipeRow} from 'react-native-swipe-list-view';
 import Actions from '../store/actions'
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 
 const DealsItem = ({item,index}) => {
   
   const navigation = useNavigation();
+  const route = useRoute();
+
   const [didSwipe, setSwiped] = React.useState();
   const dispatch = useDispatch();
 

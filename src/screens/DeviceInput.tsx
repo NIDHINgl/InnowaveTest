@@ -13,8 +13,6 @@ export default function DeviceInput() {
   const dispatch = useDispatch();
 
 
-
-
   const [values,setValues] = useState<any>({
     model:'',
     os:'',
