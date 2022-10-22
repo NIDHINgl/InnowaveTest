@@ -58,7 +58,6 @@ const DealsItem = ({item,index,changeVisibility}) => {
             dispatch(Actions.deleteDevices(index))
           }}>
             <DeleteIcon />
-          {/* <Image style={{width:30,height:30}} source={require('../assets/delete.png')} /> */}
         </TouchableOpacity>
         </View>
        
