@@ -1,15 +1,13 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { DefaultTheme, NavigationContainer,DarkTheme } from "@react-navigation/native";
 import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack";
 import {useSelector} from 'react-redux';
-
+import { TouchableOpacity } from "react-native";
 import Dashboard from "../screens/Dashboard";
 import Details from "../screens/DeviceDetails";
 import DeviceInput from "../screens/DeviceInput";
 import BackIcon from '../assets/back-black.svg';
 
-
-import { ActivityIndicator, TouchableOpacity } from "react-native";
 
 
 

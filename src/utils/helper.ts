@@ -6,48 +6,42 @@ import { store } from '../store';
 import Actions from '../store/actions';
 
 const path = RNFS.DocumentDirectoryPath + '/device.json';
+
+const handleAlert = (title:string,content:string) => {
+  Alert.alert(
+    title,
+    content,
+    [
+      {
+        text: "Cancel",
+        style: "cancel"
+      },
+      { text: "OK"}
+    ]
+  );
+}
   
 export const handleExport = async (data:any) => {
     try {
         await RNFS.writeFile(path, JSON.stringify(data), 'utf8');
-        Alert.alert(
-          "Success",
-          "File export Success.",
-          [
-            {
-              text: "Cancel",
-              style: "cancel"
-            },
-            { text: "OK"}
-          ]
-        );
+        handleAlert("Success","File export Success.");
+        // console.log('RNFS.DocumentDirectoryPath',RNFS.DocumentDirectoryPath)
+        
     
-        console.log('Success!',RNFS.DocumentDirectoryPath);
     } catch (error) {
-      Alert.alert(
-        "Failed",
-        "Unable to export file.",
-        [
-          {
-            text: "Cancel",
-            style: "cancel"
-          },
-          { text: "OK"}
-        ]
-      );
-        console.log(error);
+        handleAlert("Failed","Unable to export file.");
+      
     }
 };
 
 export const handleImport = (uri:string) => {
     RNFS.readFile(uri, 'utf8')
       .then((res) => {
-        console.log(res);
         const devices = JSON.parse(res);
         store.dispatch(Actions.importDevices(devices))
       })
       .catch((err) => {
-        console.log(err.message, err.code);
+        handleAlert("Failed","Unable to impoet file, Please try later");
       });
   };
 
@@ -58,7 +52,7 @@ export const callApi = async () => {
         return json;
       })
       .catch((error) => {
-        console.error(error);
+       
       });
   };
 
@@ -68,19 +62,12 @@ export const callApi = async () => {
       copyTo: 'cachesDirectory',
     })
     if(pickerResult?.type != "application/json"){
-      Alert.alert(
-        "Failed",
-        "Please Upload json file.",
-        [
-          {
-            text: "Cancel",
-            style: "cancel"
-          },
-          { text: "OK"}
-        ]
-      );
+      handleAlert("Failed","Please Upload json file.");
+      
     }else{
       handleImport(pickerResult?.uri)
     }
-    console.log('pickerResult',pickerResult)
   };
+
+export const keyExtractor = (item:any, index:number) => index.toString();
+ 

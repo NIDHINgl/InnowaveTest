@@ -17,7 +17,6 @@ const DeleteAlert: React.FC<ContainerProps> = ({visible,changeVisibility}) => {
 
     const deleteContent = async () => {
         const res = await callApi()
-        console.log('contentcontent222',res?.[0]?.h)
         setContent({
             html: `
           ${res?.[0]?.h}`

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text,Platform } from 'react-native'
 import React from 'react'
 import { Switch } from 'react-native-switch';
 import {useDispatch, useSelector} from 'react-redux';
@@ -10,7 +10,7 @@ export default function CustomSwitch() {
 
   return (
     <View style={{flexDirection:'row',marginRight:'10%'}}>
-        <Text style={{color:mode?'white':'black',marginTop:'4%',marginRight:'3%',fontWeight:'500'}}>{mode?'Disable':'Enable'} Dark Mode</Text>
+        <Text style={{color:mode?'white':'black',marginTop:Platform.OS == 'ios'?'3%':'0.5%',marginRight:'3%',fontWeight:'500'}}>{mode?'Disable':'Enable'} Dark Mode</Text>
       <Switch
           value={mode}
           onValueChange={(val) => dispatch(Actions.changeTheme(val))}

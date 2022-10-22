@@ -30,7 +30,6 @@ export default function DeviceInput() {
 
   const submitDetails = useCallback(()=>{
     if(route?.params?.device){
-      console.log('valuesvalues',values)
       dispatch(Actions.editDevices(route?.params?.index,values))
     }else{
       dispatch(Actions.addDevices(values))

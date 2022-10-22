@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import PlusIcon from '../assets/plus.svg';
 import DeleteAlert from '../components/DeleteAlert';
-import { handleImport,handleExport,handleUpload } from '../utils/helper';
+import { keyExtractor,handleExport,handleUpload } from '../utils/helper';
 import CustomSwitch from '../components/CustomSwitch';
 import EmptyCard from '../components/EmptyCard';
 
@@ -37,6 +37,7 @@ export default function Dashboard() {
           data={devices}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.list}
+          keyExtractor={keyExtractor}
           renderItem={({item, index}) => (
             <DealsItem item={item} index={index} changeVisibility={(state:boolean)=>setModalVisible(state)} />
           )}
