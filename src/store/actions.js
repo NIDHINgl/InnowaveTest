@@ -1,6 +1,6 @@
 export const ModuleEvents = {
     GET_DEVICES: 'GET_DEVICES',
-    CHANGE_PREVIEW: 'CHANGE_PREVIEW',
+    IMPORT_DEVICES: 'IMPORT_DEVICES',
     ADD_DEVICE: 'ADD_DEVICE',
     EDIT_DEVICE: 'EDIT_DEVICE',
     DELETE_DEVICE: 'DELETE_DEVICE',
@@ -13,9 +13,9 @@ export const ModuleEvents = {
       type: ModuleEvents.GET_DEVICES,
       devices,
     }),
-    changePreview: id => ({
-      type: ModuleEvents.CHANGE_PREVIEW,
-      id,
+    importDevices: devices => ({
+      type: ModuleEvents.IMPORT_DEVICES,
+      devices,
     }),
     addDevices: device => ({
         type: ModuleEvents.ADD_DEVICE,

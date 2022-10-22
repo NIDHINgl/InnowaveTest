@@ -3,17 +3,21 @@ import {Platform,StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
+    flexGrow:1,
     alignItems:'center',
     width:'100%',
   },
+  list:{
+    marginTop:'5%',
+    paddingBottom:'30%'
+  },
   addPostButton:{
     position: 'absolute',                                          
-    bottom: 15,
+    bottom: 80,
     right:20,
     width: 60,
     height: 60,
-    backgroundColor: '#F90064',
+    backgroundColor: '#11f0d2',
     alignItems:'center',
     justifyContent:'center',
     borderRadius:50,
@@ -80,6 +84,23 @@ const styles = StyleSheet.create({
   seperator:{
     height:10
   },
+  buttonContainer:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
+  button:{
+    height:35,
+    width:'40%',
+    backgroundColor:'#11f0d2',
+    marginHorizontal:'5%',
+    borderRadius:12,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  buttonText:{
+    fontSize:12,
+    fontWeight:'700'
+  }
 })
 
 export default styles;

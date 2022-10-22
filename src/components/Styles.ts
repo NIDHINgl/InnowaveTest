@@ -1,7 +1,11 @@
 import {Platform,StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-    container:{width:'96%',height: 156,},
+    container:{
+      width:'96%',
+      height: 156,
+      marginLeft:'2%'
+    },
   dealsContainer: {
     // justifyContent: 'center',
     backgroundColor:'#FAFAFA'
@@ -28,7 +32,7 @@ const styles = StyleSheet.create({
   rowStretched: {
     // flexDirection: 'row',
     // alignItems: 'center',
-    // justifyContent: 'space-between',
+    justifyContent: 'space-between',
     width:'67%',
   },
   badgeStatus: {
@@ -70,13 +74,13 @@ const styles = StyleSheet.create({
     height: '100%',
     width: 70,
   },
-  discount: {
+  description: {
     // marginTop: 16,
     lineHeight: 24,
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#2135B4',
-    maxWidth: 80,
+    fontWeight: '400',
+    // color: '#2135B4',
+    maxWidth: 90,
     height: 24,
   },
   date: {
@@ -299,7 +303,7 @@ const styles = StyleSheet.create({
     
     lineHeight: 18,
     opacity: 0.6,
-    fontWeight:'300'
+    fontWeight:'500'
   },
   link: {
     fontSize: 13,
@@ -508,7 +512,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     // marginTop: 10,
-    paddingRight: 24,
+    // paddingRight: 24,
     paddingLeft: 15,
     // marginBottom: 4,
     height: 156,
@@ -579,6 +583,49 @@ const styles = StyleSheet.create({
     bottom:Platform.OS == "android"?'3%':'1%',
     
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  },
+  activityBox:{height:'100%',width:102,flexDirection:'row'},
+  activity:{width:50,height:'100%',justifyContent:'center',alignItems:'center'}
 })
 
 export default styles;

@@ -22,7 +22,7 @@ export default function DeviceInput() {
   });
 
   useEffect(()=>{
-    console.log('route?.params?.devicessdevice',typeof route?.params?.index)
+
     if(route?.params?.device){
       setValues(route?.params?.device)
     }

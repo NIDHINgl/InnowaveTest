@@ -16,8 +16,10 @@ import {ModuleEvents} from "./actions";
           devices:action.devices
         };
     case ModuleEvents.ADD_DEVICE:
-       console.log('action.device',action.device)
         return {...state,devices:[...state.devices,action.device]};
+    case ModuleEvents.IMPORT_DEVICES:
+        return {...state,devices:[...state.devices,...action.devices]};
+
     case ModuleEvents.EDIT_DEVICE:
         
           state.devices[action?.id] = action?.device;

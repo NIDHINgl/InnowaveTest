@@ -33,6 +33,7 @@ const DealDetails = () => {
         <View style={styles.tearContainer}>
           <ImageBackground
             style={styles.dealContent}
+            resizeMode='contain'
             source={{uri: device?.image}}>
             {/* <View style={styles.rowStretched}>
               
@@ -43,21 +44,7 @@ const DealDetails = () => {
                 </Text>
               </View>
             </View> */}
-            <View style={styles.detailsRow}>
-              
-              <View style={styles.shareButtons}>
-                <TouchableOpacity
-                  onPress={() =>
-                    console.log('ddd')
-                  }
-                  style={styles.shareButton}>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => console.log('d')}
-                  style={styles.shareButton}>
-                </TouchableOpacity>
-              </View>
-            </View>
+            
           </ImageBackground>
         </View>
         <View style={styles.ticketContainer}>

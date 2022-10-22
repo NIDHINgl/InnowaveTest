@@ -1,13 +1,13 @@
 import React,{useEffect} from "react";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack";
-import { useDispatch, useSelector } from "react-redux";
 import Dashboard from "../screens/Dashboard";
 import Details from "../screens/DeviceDetails";
 import DeviceInput from "../screens/DeviceInput";
+import BackIcon from '../assets/back-black.svg';
 
 
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, TouchableOpacity } from "react-native";
 
 
 
@@ -76,6 +76,11 @@ export default function RootNavigator() {
                 headerShown: true,
                 ...screenOptions,
                 ...props,
+                headerLeft: (navigation:any) => (
+                  <TouchableOpacity style={{marginLeft:'5%'}} onPress={event => navigation.onPress(event)}>
+                    <BackIcon />
+                  </TouchableOpacity>
+                ),
               })}
             />
       </Stack.Navigator>
