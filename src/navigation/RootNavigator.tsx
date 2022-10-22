@@ -8,28 +8,9 @@ import Details from "../screens/DeviceDetails";
 import DeviceInput from "../screens/DeviceInput";
 import BackIcon from '../assets/back-black.svg';
 
-
-
-
 const HEADER_HEIGHT = 110;
 const Stack = createStackNavigator();
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    // background: '#F4F6F9',
-    background: '#FAFAFA',
-    border: 'transparent',
-    card: '#FAFAFA',
-  },
-};
-
-const authOptions = {
-  headerShown: false,
-  gestureEnabled: false,
-  cardStyle: {backgroundColor: 'white'},
-};
 
 const screenOptions = {
   gestureEnabled: false,
