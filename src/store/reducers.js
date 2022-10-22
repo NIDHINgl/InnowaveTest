@@ -1,8 +1,9 @@
 import {ModuleEvents} from "./actions";
   
   const initialState = {
-    preview: null,
-    devices: []
+        preview: null,
+        devices: [],
+        darkMode:false
         };
   
   export default function (state = initialState, action) {
@@ -31,6 +32,8 @@ import {ModuleEvents} from "./actions";
           );
 
         return {...state,devices:newList};
+    case ModuleEvents.CHANGE_THEME:
+      return {...state,darkMode:action.status};
   
       default:
         return state;

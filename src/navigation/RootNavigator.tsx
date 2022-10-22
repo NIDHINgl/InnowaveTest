@@ -1,6 +1,8 @@
 import React,{useEffect} from "react";
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer,DarkTheme } from "@react-navigation/native";
 import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack";
+import {useSelector} from 'react-redux';
+
 import Dashboard from "../screens/Dashboard";
 import Details from "../screens/DeviceDetails";
 import DeviceInput from "../screens/DeviceInput";
@@ -44,11 +46,12 @@ const screenOptions = {
 };
 
 export default function RootNavigator() {
+  const mode = useSelector((state:any) => state.darkMode);
 
   return (
     <NavigationContainer
     //   ref={navigationRef}
-      theme={theme}>
+      theme={mode ? DarkTheme : DefaultTheme}>
      
         <Stack.Navigator >
         <Stack.Screen

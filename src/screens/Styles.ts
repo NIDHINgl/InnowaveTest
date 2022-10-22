@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flexGrow:1,
     alignItems:'center',
     width:'100%',
+    marginTop:'5%'
   },
   list:{
     marginTop:'5%',
@@ -51,7 +52,8 @@ const styles = StyleSheet.create({
   },
   loginText:{
     textTransform: 'uppercase',
-    alignSelf:'center'
+    alignSelf:'center',
+    fontWeight:'700'
    },
  
   formCard: {
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     paddingLeft:10
   },
   login: {
-    backgroundColor: '#FA4169',
+    backgroundColor: '#11f0d2',
     marginTop: '10%',
     height: 48,
     borderRadius: 40,

@@ -32,7 +32,7 @@ const DealDetails = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.tearContainer}>
           <ImageBackground
-            style={styles.dealContent}
+            style={styles.deviceContent}
             resizeMode='contain'
             source={{uri: device?.image}}>
             {/* <View style={styles.rowStretched}>
@@ -77,9 +77,7 @@ const DealDetails = () => {
           <View style={styles.seperator}>
             <View style={styles.rowStretched}>
               <View style={styles.edgeRemoveLeft} />
-              {/* {[...Array(16)].map((_, i) => {
-                return <View key={i} style={styles.dashes} />;
-              })} */}
+            
             </View>
             <View style={styles.edgeRemoveRight} />
           </View>

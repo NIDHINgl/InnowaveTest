@@ -65,7 +65,7 @@ const DealsItem = ({item,index,changeVisibility}) => {
       </View>
     <Animated.View>
      
-      <Animated.View style={styles.dealsItem}>
+      <Animated.View style={styles.deviceItem}>
         <View style={styles.imageWrapper}>
         
           <Image style={styles.image} source={{uri: item?.image}} />

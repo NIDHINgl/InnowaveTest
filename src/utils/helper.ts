@@ -5,7 +5,7 @@ import DocumentPicker from 'react-native-document-picker'
 import { store } from '../store';
 import Actions from '../store/actions';
 
-const path = RNFS.DocumentDirectoryPath + '/test.json';
+const path = RNFS.DocumentDirectoryPath + '/device.json';
   
 export const handleExport = async (data:any) => {
     try {

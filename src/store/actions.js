@@ -4,8 +4,7 @@ export const ModuleEvents = {
     ADD_DEVICE: 'ADD_DEVICE',
     EDIT_DEVICE: 'EDIT_DEVICE',
     DELETE_DEVICE: 'DELETE_DEVICE',
-
-
+    CHANGE_THEME: 'CHANGE_THEME',
    
   };
   const Actions = {
@@ -22,14 +21,18 @@ export const ModuleEvents = {
         device,
       }),
     editDevices: (id,device) => ({
-    type: ModuleEvents.EDIT_DEVICE,
-    id,
-    device
+      type: ModuleEvents.EDIT_DEVICE,
+      id,
+      device
     }),
     deleteDevices: id => ({
-        type: ModuleEvents.DELETE_DEVICE,
-        id,
-      }),
+      type: ModuleEvents.DELETE_DEVICE,
+      id,
+    }),
+    changeTheme: status => ({
+      type: ModuleEvents.CHANGE_THEME,
+      status,
+    }),
     
   };
   
