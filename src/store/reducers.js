@@ -2,7 +2,13 @@ import {ModuleEvents} from "./actions";
   
   const initialState = {
         preview: null,
-        devices: [],
+        devices: [{
+                model:'Galaxy S10',
+                os:'Android',
+                owner:'Nidhin',
+                description:'Intelligent Performance recognizes patterns in your mobile behavior and optimizes usage based on them',
+                image:'https://ovantica.com/pub/media/catalog/product/cache/359e51c8e354c4e2b5af98e814f93978/s/a/sam_s10_b.png'
+              }],
         darkMode:false
         };
   
